@@ -5,7 +5,7 @@ require 'pry'
 require 'rspec'
 require 'webdrivers'
 
-options = Selenium::WebDrivers::Chrome::Options.new
+options = Selenium::WebDriver::Chrome::Options.new
 options.add_argument('--headless') if ENV ['HEADLESS']
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--disable-gpu')
