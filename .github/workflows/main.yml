@@ -26,7 +26,7 @@ jobs:
       run: bundle install
 
     - name: Run Cucumber Test
-      run:
+      run: |
             chrome --version
             chromedriver --version
 

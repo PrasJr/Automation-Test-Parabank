@@ -5,13 +5,13 @@ require 'pry'
 require 'rspec'
 require 'webdrivers'
 
-options = Selenium::Webdrivers::Chrome::Option.new
+options = Selenium::WebDrivers::Chrome::Options.new
 options.add_argument('--headless') if ENV ['HEADLESS']
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--disable-gpu')
 
 Capybara.register_driver :selenium do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome, timeout: 30, options:options)
+    Capybara::Selenium::Driver.new(app, browser: :chrome, timeout: 30, options: options)
 end
 
 Capybara.configure do |config|
