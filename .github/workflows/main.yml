@@ -17,7 +17,7 @@ jobs:
 
     - name: Chromedriver Install
       run: 
-            wget "https://chromedriver.storage.googleapis.com/104.0.5112.79/chromedriver_linux64.zip"
+            wget "https://chromedriver.storage.googleapis.com/112.0.5615.28/chromedriver_linux64.zip"
             unzip chromedriver_linux64.zip
             sudo mv chromedriver /usr/bin/
 
