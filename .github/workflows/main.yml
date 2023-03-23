@@ -1,33 +1,33 @@
 name: Cucumber-Selenium-Ruby
 on: [push, pull_request]
 jobs:
-build:
-runs-on: ubuntu-latest
-steps:
-- uses: action/checkout@v3
-- name: Setup Ruby
-  uses: ruby/setup-ruby@v1
-  with:
-  ruby-version: 3.1.2
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: action/checkout@v3
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.1.2
 
-- name: Chrome Install
-  uses: browser-actions/setup-chrome@latest
-  with:
-  chrome-version: stable
+    - name: Chrome Install
+      uses: browser-actions/setup-chrome@latest
+      with:
+        chrome-version: stable
 
-- name: Chromedriver Install
-  run: 
-    wget "https://chromedriver.storage.googleapis.com/104.0.5112.79/chromedriver_linux64.zip"
-   unzip chromedriver_linux64zip
-    sudo mv chromedriver /usr/bin/
+    - name: Chromedriver Install
+      run: 
+            wget "https://chromedriver.storage.googleapis.com/104.0.5112.79/chromedriver_linux64.zip"
+            unzip chromedriver_linux64zip
+            sudo mv chromedriver /usr/bin/
 
 
-- name: Bundle Install
-  run: bundle install
+    - name: Bundle Install
+      run: bundle install
 
-- name: Run Cucumber Test
-  run:
-      chrome --version
-      chromedriver --version
+    - name: Run Cucumber Test
+      run:
+            chrome --version
+            chromedriver --version
 
-      HEADLESS=true bundle exec cucumber
+            HEADLESS=true bundle exec cucumber
