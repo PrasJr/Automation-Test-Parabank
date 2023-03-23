@@ -15,8 +15,19 @@ steps:
   with:
   chrome-version: stable
 
+- name: Chromedriver Install
+  run: 
+    wget "https://chromedriver.storage.googleapis.com/104.0.5112.79/chromedriver_linux64.zip"
+   unzip chromedriver_linux64zip
+    sudo mv chromedriver /usr/bin/
+
+
 - name: Bundle Install
-   run: bundle install
+  run: bundle install
 
 - name: Run Cucumber Test
-  run: bundle exec cucumber
+  run:
+      chrome --version
+      chromedriver --version
+
+      HEADLESS=true bundle exec cucumber
